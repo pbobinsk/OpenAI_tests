@@ -1,0 +1,21 @@
+openai
+python-dotenv
+
+# r03_03 Ekspert od Minecraft
+redis
+pypdf 
+numpy
+
+# r03_04 Sterowanie głosem
+gradio
+ffmpeg-python
+#openai-whisper
+
+# r05_01 Dynamiczne monity
+langchain
+bs4
+wikipedia
+
+# r05_04 Osadzenia
+tiktoken
+faiss-cpu
