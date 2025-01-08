@@ -5,11 +5,12 @@ import openai
 from typing import List
 
 def ask_chatgpt(messages):
-    response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
+    response = openai.chat.completions.create(
+    model="gpt-4o-mini",
     messages=messages
     )
-    return (response['choices'][0]['message']['content'])
+    print(response.usage.total_tokens)
+    return (response.to_dict()['choices'][0]['message']['content'])
 
 prompt_role = "Jesteś asystentem dziennikarza. \
     Twoim zadaniem jest pisanie artykułów w oparciu o podane FAKTY. \
