@@ -1,11 +1,12 @@
 
 from sklearn import datasets
 iris = datasets.load_iris() 
-data = iris.data 
+print (iris.feature_names)
+data = iris.data [:,[0,1]]
 labels = iris.target
 
 # print(data)
-# print(labels)
+print(labels)
 
 from sklearn.neural_network import MLPClassifier
 
@@ -39,29 +40,35 @@ print('Błędnie sklasyfikowane próbki: %d' % (labels_test != pred).sum())
 
 print(f'Dokładność: {accuracy_score(labels_test, pred)}')
 
-# import numpy
-# from matplotlib.colors import ListedColormap 
-# import matplotlib.pyplot as plt
-# markers = ('s', '*', '^') 
-# colors = ('blue', 'green', 'red') 
-# cmap = ListedColormap(colors)   
-# x_min, x_max = data[:, 0].min() - 1, data[:, 0].max() + 1 
-# y_min, y_max = data[:, 1].min() - 1, data[:, 1].max() + 1 
-# resolution = 0.01  
-# x, y = numpy.meshgrid(numpy.arange(x_min, x_max, resolution), numpy.arange(y_min, y_max, resolution)) 
-# Z = mlp.predict(numpy.array([x.ravel(), y.ravel()]).T) 
-# Z = Z.reshape(x.shape)  
-# plt.pcolormesh(x, y, Z, cmap=cmap) 
-# plt.xlim(x.min(), x.max()) 
-# plt.ylim(y.min(), y.max())  
-# # rysowanie wykresu danych 
-# classes = ["setosa", "versicolor", "verginica"] 
-# for index, cl in enumerate(numpy.unique(labels)):     
-# plt.scatter(data[labels == cl, 0], data[labels == cl, 1], c=cmap(index), marker=markers[index], s=50, label=classes[index])     
-# plt.xlabel('petal length') 
-# plt.ylabel('sepal length') 
-# plt.legend(loc='upper left') 
-# plt.show() 
+import numpy
+from matplotlib.colors import ListedColormap 
+import matplotlib.pyplot as plt
+
+markers = ('s', '*', '^') 
+colors = ('blue', 'green', 'red') 
+cmap = ListedColormap(colors)   
+
+x_min, x_max = data[:, 0].min() - 1, data[:, 0].max() + 1 
+y_min, y_max = data[:, 1].min() - 1, data[:, 1].max() + 1 
+
+resolution = 0.01  
+
+x, y = numpy.meshgrid(numpy.arange(x_min, x_max, resolution), numpy.arange(y_min, y_max, resolution)) 
+
+Z = mlp.predict(numpy.array([x.ravel(), y.ravel()]).T) 
+Z = Z.reshape(x.shape)  
+
+plt.pcolormesh(x, y, Z, cmap=cmap) 
+plt.xlim(x.min(), x.max()) 
+plt.ylim(y.min(), y.max())  
+# rysowanie wykresu danych 
+classes = ["setosa", "versicolor", "verginica"] 
+for index, cl in enumerate(numpy.unique(labels)):     
+    plt.scatter(data[labels == cl, 0], data[labels == cl, 1], c=numpy.array([cmap(index)]), marker=markers[index], s=50, label=classes[index])     
+plt.xlabel('petal length') 
+plt.ylabel('sepal length') 
+plt.legend(loc='upper left') 
+plt.show() 
 
 # mlp = MLPClassifier(random_state=1, hidden_layer_sizes=(200, 100,))
 
