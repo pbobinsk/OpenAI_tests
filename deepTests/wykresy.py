@@ -92,7 +92,6 @@ plt.contourf(xx, yy, Z, cmap=ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF']), 
 # plt.scatter(X[:, 0], X[:, 1], c=y, edgecolor='k', cmap=ListedColormap(['#FF0000', '#00FF00', '#0000FF']))
 
 for idx, cl in enumerate(np.unique(y)):
-
         plt.scatter(x=X[y == cl, 0], 
                     y=X[y == cl, 1],
                     c=['#FF0000', '#00FF00', '#0000FF'][idx], 
