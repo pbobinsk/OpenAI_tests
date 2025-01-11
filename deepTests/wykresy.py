@@ -84,9 +84,6 @@ Z = Z.reshape(xx.shape)
 
 plt.close('all')
 
-print(y)
-
-
 # Wykres obszarów decyzyjnych
 plt.contourf(xx, yy, Z, cmap=ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF']), alpha=0.6)
 # plt.scatter(X[:, 0], X[:, 1], c=y, edgecolor='k', cmap=ListedColormap(['#FF0000', '#00FF00', '#0000FF']))
