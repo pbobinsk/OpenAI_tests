@@ -2,7 +2,7 @@
 from sklearn import datasets
 iris = datasets.load_iris() 
 print (iris.feature_names)
-data = iris.data [:,[0,1]]
+data = iris.data [:,[2,3]]
 labels = iris.target
 
 # print(data)
@@ -47,6 +47,8 @@ import matplotlib.pyplot as plt
 markers = ('s', '*', '^') 
 colors = ('blue', 'green', 'red') 
 cmap = ListedColormap(colors)   
+print(colors)
+print(cmap.colors)
 
 x_min, x_max = data[:, 0].min() - 1, data[:, 0].max() + 1 
 y_min, y_max = data[:, 1].min() - 1, data[:, 1].max() + 1 
